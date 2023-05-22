@@ -5,21 +5,23 @@ import subprocess
 with open('config.json') as config_file:
     config_data = json.load(config_file)
 
+common_variables = config_data["common_variables"]
+primary_variables = config_data["primary_variables"]
+
+
 # Extract required values
-ansible_host = config_data['ansible_host']
-ansible_connection = config_data['ansible_connection']
-ansible_user = config_data['ansible_user']
-ansible_become_pass = config_data['ansible_become_pass']
+ansible_host = primary_variables['_PG_SERVER_PRIMARY_IP']
+ansible_connection = 'ssh'
+ansible_user = primary_variables['_PG_SERVER_PRIMARY_USERNAME']
+ansible_become_pass = primary_variables['_PG_SERVER_PRIMARY_PSSWD']
 
 # Define extra variables
 extra_vars = {
-    "_PG_PORT": config_data['_PG_PORT'],
-    "_PG_PASSWORD": config_data['_PG_PASSWORD'],
-    "_PG_VERSION": config_data['_PG_VERSION'],
-    "_PG_CIRRUS_DIRECTORY": config_data['_PG_CIRRUS_DIRECTORY'],
-    "_PG_PRIMARY_DATA_DIRECTORY_NAME": config_data['_PG_PRIMARY_DATA_DIRECTORY_NAME'],
-    "_PG_STANDBY1_DATA_DIRECTORY_NAME": config_data['_PG_STANDBY1_DATA_DIRECTORY_NAME'],
-    "_PG_STANDBY2_DATA_DIRECTORY_NAME": config_data['_PG_STANDBY2_DATA_DIRECTORY_NAME']
+    "_PG_SERVER_PRIMARY_PORT": primary_variables['_PG_SERVER_PRIMARY_PORT'],
+    "_PG_PASSWORD": primary_variables['_PG_PASSWORD'],
+    "_PG_VERSION": common_variables['_PG_SERVER_VERSION'],
+    "_PG_CIRRUS_CONF_DIRECTORY": common_variables['_PG_CIRRUS_CONF_DIRECTORY'],
+    "_PG_SERVER_PRIMARY_DATA_DIRECTORY": primary_variables['_PG_SERVER_PRIMARY_DATA_DIRECTORY']
 }
 
 # Execute Ansible playbook

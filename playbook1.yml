@@ -1,0 +1,32 @@
+# Configure the PostgreSQL standby servers.
+- name: Setup Stand by servers
+  hosts: all
+  become: true
+  tasks:
+
+    # Create a directory to store configuration files and data directory for Standby PostgreSQL servers.
+    - name: Creating pg_cirrus directory
+      become_user: postgres
+      file:
+        path: "{{ _PG_CIRRUS_CONF_DIRECTORY }}"
+        state: directory
+
+    # Determine the packge name using is_latest variable. Package is installed using install-community-packages.yml.
+    - name: "Install PostgreSQL {{ _PG_VERSION }}"
+      vars:
+        _PACKAGE_NAME: "{{ 'postgresql' if is_latest else 'postgresql-' + _PG_VERSION|string }}"
+      include_tasks: tasks/install-community-packages.yml
+
+    # Stop standby PostgreSQL servers
+    - name: Stop already running service
+      shell: service postgresql stop
+
+    # Run pg_basebackup command to create data directory for standby server 1
+    - name: Running pg_basebackup for standby1 server
+      become_user: postgres
+      shell: "export PGPASSWORD=repuserpassword; pg_basebackup -h {{ 192.168.222.4 }} -U repuser -X stream -C -S sb1 -v -R -w -D {{ _PG_CIRRUS_CONF_DIRECTORY }}/{{ _PG_SERVER_STANDBY_DATA_DIRECTORY  }}"
+
+    # Start the PostgreSQL standby server 1
+    - name: Starting the standby1 server
+      become_user: postgres
+      shell: /usr/lib/postgresql/{{ _PG_VERSION }}/bin/pg_ctl -D {{ _PG_CIRRUS_CONF_DIRECTORY }}/{{ _PG_SERVER_STANDBY_DATA_DIRECTORY  }} start

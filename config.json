@@ -1,14 +1,34 @@
 {
-  "ansible_connection": "ssh",
-  "ansible_host": "192.168.222.4",
-  "ansible_user": "postgres",
-  "ansible_become_pass": "xflow@123",
-  "_PG_PORT": 5432,
-  "_PG_PASSWORD": "123",
-  "_PG_VERSION": "_LATEST_",
-  "_PG_CIRRUS_DIRECTORY": "/home/postgres/stormatics/pg_cirrus",
-  "_PG_PRIMARY_DATA_DIRECTORY_NAME": "primary_data",
-  "_PG_STANDBY1_DATA_DIRECTORY_NAME": "standby1_data",
-  "_PG_STANDBY2_DATA_DIRECTORY_NAME": "standby2_data"
+  "common_variables": {
+    "_PG_SERVER_ENCODING": "utf-8",
+    "_PG_SERVER_REPLICATION_USERNAME": "repuser",
+    "_PG_SERVER_REPLICATION_USER_PASSWORD": "repuserpassword",
+    "_PG_CIRRUS_CONF_DIRECTORY": "/home/postgres/stormatics/pg_cirrus",
+    "_PG_SERVER_VERSION": "15"
+  },
+  "primary_variables": {
+    "_PG_SERVER_PRIMARY_IP": "192.168.222.4",
+    "_PG_SERVER_PRIMARY_USERNAME": "postgres",
+    "_PG_SERVER_PRIMARY_PSSWD": "xflow@123",
+    "_PG_SERVER_PRIMARY_PORT": "5432",
+    "_PG_PASSWORD": "123",
+    "_PG_SERVER_PRIMARY_DATA_DIRECTORY": "primary"
+  },
+  "standby_variables": [
+    {
+      "_PG_SERVER_STANDBY_IP": "192.168.222.5",
+      "_PG_SERVER_STANDBY_USERNAME": "postgres",
+      "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
+      "_PG_SERVER_STANDBY_PORT": "5432",
+      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby"
+    },
+    {
+      "_PG_SERVER_STANDBY_IP": "192.168.222.6",
+      "_PG_SERVER_STANDBY_USERNAME": "postgres",
+      "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
+      "_PG_SERVER_STANDBY_PORT": "5432",
+      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby"
+    }
+  ]
 }
 
