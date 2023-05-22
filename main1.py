@@ -17,10 +17,10 @@ ansible_become_pass = primary_variables['_PG_SERVER_PRIMARY_PSSWD']
 
 # Define extra variables
 extra_vars = {
-    "_PG_PORT": primary_variables['_PG_PORT'],
+    "_PG_SERVER_PRIMARY_PORT": primary_variables['_PG_SERVER_PRIMARY_PORT'],
     "_PG_PASSWORD": primary_variables['_PG_PASSWORD'],
-    "_PG_VERSION": common_variables['_PG_VERSION'],
-    "_PG_CIRRUS_CONF_DIRECTORY": common_variables['_PG_CIRRUS_DIRECTORY'],
+    "_PG_VERSION": common_variables['_PG_SERVER_VERSION'],
+    "_PG_CIRRUS_CONF_DIRECTORY": common_variables['_PG_CIRRUS_CONF_DIRECTORY'],
     "_PG_SERVER_PRIMARY_DATA_DIRECTORY": primary_variables['_PG_SERVER_PRIMARY_DATA_DIRECTORY']
 }
 
