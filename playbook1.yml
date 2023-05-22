@@ -14,7 +14,7 @@
     # Determine the packge name using is_latest variable. Package is installed using install-community-packages.yml.
     - name: "Install PostgreSQL {{ _PG_VERSION }}"
       vars:
-        _PACKAGE_NAME: "{{ 'postgresql' if is_latest else 'postgresql-' + _PG_VERSION|string }}"
+        _PACKAGE_NAME: "{{ 'postgresql' }}"
       include_tasks: tasks/install-community-packages.yml
 
     # Stop standby PostgreSQL servers
