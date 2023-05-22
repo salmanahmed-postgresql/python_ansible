@@ -31,7 +31,8 @@ command = [
     '-e', f'ansible_connection={ansible_connection}',
     '-e', f'ansible_user={ansible_user}',
     '-e', f'ansible_become_pass={ansible_become_pass}',
-    'playbook.yml'
+    'playbook.yml',
+    '-vvv'
 ]
 
 # Extend command with extra variables
@@ -75,7 +76,8 @@ for standby_var in standby_variables:
         '-e', f'ansible_connection={ansible_connection}',
         '-e', f'ansible_user={ansible_user}',
         '-e', f'ansible_become_pass={ansible_become_pass}',
-        'playbook1.yml'
+        'playbook1.yml',
+	'-vvv'
     ]
 
     # Extend command with extra variables
