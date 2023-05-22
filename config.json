@@ -18,7 +18,7 @@
     {
       "_PG_SERVER_STANDBY_IP": "192.168.222.5",
       "_PG_SERVER_STANDBY_USERNAME": "postgres",
-      "_PG_SERVER_STANDBY_PSSWD": xflow@123"",
+      "_PG_SERVER_STANDBY_PSSWD": xflow@123",
       "_PG_SERVER_STANDBY_PORT": "5432",
       "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby"
     },
