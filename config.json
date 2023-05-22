@@ -1,0 +1,14 @@
+{
+  "ansible_connection": "ssh",
+  "ansible_host": "192.168.222.4",
+  "ansible_user": "postgres",
+  "ansible_become_pass": "xflow@123",
+  "_PG_PORT": 5432,
+  "_PG_PASSWORD": "123",
+  "_PG_VERSION": "_LATEST_",
+  "_PG_CIRRUS_DIRECTORY": "/home/postgres/stormatics/pg_cirrus",
+  "_PG_PRIMARY_DATA_DIRECTORY_NAME": "primary_data",
+  "_PG_STANDBY1_DATA_DIRECTORY_NAME": "standby1_data",
+  "_PG_STANDBY2_DATA_DIRECTORY_NAME": "standby2_data"
+}
+
