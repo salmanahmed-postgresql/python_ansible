@@ -14,7 +14,7 @@
     # Determine the packge name using is_latest variable. Package is installed using install-community-packages.yml.
     - name: "Install PostgreSQL {{ _PG_VERSION }}"
       vars:
-        _PACKAGE_NAME: "{{ 'postgresql' if is_latest else 'postgresql-' + _PG_VERSION|string }}"
+        _PACKAGE_NAME: "{{ 'postgresql' }}"
       include_tasks: tasks/install-community-packages.yml
 
     # Stop standby PostgreSQL servers
@@ -24,7 +24,7 @@
     # Run pg_basebackup command to create data directory for standby server 1
     - name: Running pg_basebackup for standby1 server
       become_user: postgres
-      shell: "export PGPASSWORD=repuserpassword; pg_basebackup -h {{ 192.168.222.4 }} -U repuser -X stream -C -S sb1 -v -R -w -D {{ _PG_CIRRUS_CONF_DIRECTORY }}/{{ _PG_SERVER_STANDBY_DATA_DIRECTORY  }}"
+      shell: "export PGPASSWORD=repuserpassword; pg_basebackup -h 192.168.222.5 -U repuser -X stream -C -S {{ _PG_REPLICATION_SLOT }} -v -R -w -D {{ _PG_CIRRUS_CONF_DIRECTORY }}/{{ _PG_SERVER_STANDBY_DATA_DIRECTORY  }}"
 
     # Start the PostgreSQL standby server 1
     - name: Starting the standby1 server
