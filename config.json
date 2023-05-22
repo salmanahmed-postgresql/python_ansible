@@ -7,7 +7,7 @@
     "_PG_SERVER_VERSION": "15"
   },
   "primary_variables": {
-    "_PG_SERVER_PRIMARY_IP": "192.168.222.4",
+    "_PG_SERVER_PRIMARY_IP": "192.168.222.5",
     "_PG_SERVER_PRIMARY_USERNAME": "postgres",
     "_PG_SERVER_PRIMARY_PSSWD": "xflow@123",
     "_PG_SERVER_PRIMARY_PORT": "5432",
@@ -16,18 +16,18 @@
   },
   "standby_variables": [
     {
-      "_PG_SERVER_STANDBY_IP": "192.168.222.5",
-      "_PG_SERVER_STANDBY_USERNAME": "postgres",
-      "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
-      "_PG_SERVER_STANDBY_PORT": "5432",
-      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby"
-    },
-    {
       "_PG_SERVER_STANDBY_IP": "192.168.222.6",
       "_PG_SERVER_STANDBY_USERNAME": "postgres",
       "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
       "_PG_SERVER_STANDBY_PORT": "5432",
-      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby"
+      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby2"
+    },
+    {
+      "_PG_SERVER_STANDBY_IP": "192.168.222.7",
+      "_PG_SERVER_STANDBY_USERNAME": "postgres",
+      "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
+      "_PG_SERVER_STANDBY_PORT": "5432",
+      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby2"
     }
   ]
 }
