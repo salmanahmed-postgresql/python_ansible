@@ -5,11 +5,20 @@ import subprocess
 with open('config.json') as config_file:
     config_data = json.load(config_file)
 
+
+common_variables = config_data["common_variables"]
+_PG_SERVER_ENCODING = common_variables["_PG_SERVER_ENCODING"]
+_PG_SERVER_REPLICATION_USERNAME = common_variables["_PG_SERVER_REPLICATION_USERNAME"]
+_PG_SERVER_REPLICATION_USER_PASSWORD = common_variables["_PG_SERVER_REPLICATION_USER_PASSWORD"]
+_PG_CIRRUS_CONF_DIRECTORY = common_variables["_PG_CIRRUS_CONF_DIRECTORY"]
+_PG_SERVER_VERSION = common_variables["_PG_SERVER_VERSION"]
+
+
 # Extract required values
-ansible_host = config_data['ansible_host']
-ansible_connection = config_data['ansible_connection']
-ansible_user = config_data['ansible_user']
-ansible_become_pass = config_data['ansible_become_pass']
+ansible_host = config_data['_PG_SERVER_PRIMARY_IP']
+ansible_connection = "ssh"
+ansible_user = config_data['_PG_SERVER_PRIMARY_USERNAME']
+ansible_become_pass = config_data['_PG_SERVER_PRIMARY_PSSWD']
 
 # Define extra variables
 extra_vars = {
