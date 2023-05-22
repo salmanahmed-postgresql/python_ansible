@@ -55,18 +55,17 @@ subprocess.run(command)
 for standby_var in standby_variables:
 
     # Extract required values
-    ansible_host = primary_variables['_PG_SERVER_STANDBY_IP']
+    ansible_host = standby_var['_PG_SERVER_STANDBY_IP']
     ansible_connection = 'ssh'
-    ansible_user = primary_variables['_PG_SERVER_STANDBY_USERNAME']
-    ansible_become_pass = primary_variables['_PG_SERVER_STANDBY_PSSWD']
+    ansible_user = standby_var['_PG_SERVER_STANDBY_USERNAME']
+    ansible_become_pass = standby_var['_PG_SERVER_STANDBY_PSSWD']
 
     # Define extra variables
     extra_vars = {
-        "_PG_SERVER_STANDBY_PORT": primary_variables['_PG_SERVER_STANDBY_PORT'],
-        "_PG_PASSWORD": primary_variables['_PG_PASSWORD'],
+        "_PG_SERVER_STANDBY_PORT": standby_var['_PG_SERVER_STANDBY_PORT'],
         "_PG_VERSION": common_variables['_PG_SERVER_VERSION'],
         "_PG_CIRRUS_CONF_DIRECTORY": common_variables['_PG_CIRRUS_CONF_DIRECTORY'],
-        "_PG_SERVER_STANDBY_DATA_DIRECTORY": primary_variables['_PG_SERVER_STANDBY_DATA_DIRECTORY']
+        "_PG_SERVER_STANDBY_DATA_DIRECTORY": standby_var['_PG_SERVER_STANDBY_DATA_DIRECTORY']
     }
 
     # Execute Ansible playbook
