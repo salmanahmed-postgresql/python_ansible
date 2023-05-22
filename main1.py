@@ -31,8 +31,7 @@ command = [
     '-e', f'ansible_connection={ansible_connection}',
     '-e', f'ansible_user={ansible_user}',
     '-e', f'ansible_become_pass={ansible_become_pass}',
-    'playbook.yml',
-    '-vvv'
+    'playbook.yml'
 ]
 
 # Extend command with extra variables
@@ -66,7 +65,8 @@ for standby_var in standby_variables:
         "_PG_SERVER_STANDBY_PORT": standby_var['_PG_SERVER_STANDBY_PORT'],
         "_PG_VERSION": common_variables['_PG_SERVER_VERSION'],
         "_PG_CIRRUS_CONF_DIRECTORY": common_variables['_PG_CIRRUS_CONF_DIRECTORY'],
-        "_PG_SERVER_STANDBY_DATA_DIRECTORY": standby_var['_PG_SERVER_STANDBY_DATA_DIRECTORY']
+        "_PG_SERVER_STANDBY_DATA_DIRECTORY": standby_var['_PG_SERVER_STANDBY_DATA_DIRECTORY'],
+	"_PG_REPLICATION_SLOT": standby_var['_PG_REPLICATION_SLOT']
     }
 
     # Execute Ansible playbook
@@ -76,8 +76,7 @@ for standby_var in standby_variables:
         '-e', f'ansible_connection={ansible_connection}',
         '-e', f'ansible_user={ansible_user}',
         '-e', f'ansible_become_pass={ansible_become_pass}',
-        'playbook1.yml',
-	'-vvv'
+        'playbook1.yml'
     ]
 
     # Extend command with extra variables
