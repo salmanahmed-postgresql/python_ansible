@@ -1,36 +1,35 @@
 {
-  "common_variables": {
-    "_PG_SERVER_ENCODING": "utf-8",
-    "_PG_SERVER_REPLICATION_USERNAME": "repuser",
-    "_PG_SERVER_REPLICATION_USER_PASSWORD": "repuserpassword",
-    "_PG_CIRRUS_CONF_DIRECTORY": "/home/postgres/stormatics/pg_cirrus",
-    "_PG_SERVER_VERSION": "15"
-  },
-  "primary_variables": {
-    "_PG_SERVER_PRIMARY_IP": "192.168.222.5",
-    "_PG_SERVER_PRIMARY_USERNAME": "postgres",
-    "_PG_SERVER_PRIMARY_PSSWD": "xflow@123",
-    "_PG_SERVER_PRIMARY_PORT": "5432",
-    "_PG_PASSWORD": "123",
-    "_PG_SERVER_PRIMARY_DATA_DIRECTORY": "primary"
-  },
-  "standby_variables": [
-    {
-      "_PG_SERVER_STANDBY_IP": "192.168.222.6",
-      "_PG_SERVER_STANDBY_USERNAME": "postgres",
-      "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
-      "_PG_SERVER_STANDBY_PORT": "5432",
-      "_PG_REPLICATION_SLOT": "sb1",
-      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby1"
+    "common_variables": {
+        "_PG_SERVER_ENCODING": "gAAAAABkb2CP_R-8GKSXxM6EofY-RuiErmKM0yvkWyDrA63VRu-YO7TX1G23cgb0d1hlHOim12syJIs7fp6BFgvXM4szD2MooA==",
+        "_PG_SERVER_REPLICATION_USERNAME": "gAAAAABkb2CPA109uoRia6ao-LBosmAqBOi8K9gSxsQQOh281OK-UrOS8LlbF0Df2l4hQRNIoOMpmTEPRuRFs6PueiJVv2uUgg==",
+        "_PG_SERVER_REPLICATION_USER_PASSWORD": "gAAAAABkb2CP059dVDdaiwpny68uAWpzdXcrFnePWxuRJ219ny5BwXpy3Uk1FDqulGOuiZBR3aFjRE8kVt84d6DK8uW0QFtjzA==",
+        "_PG_CIRRUS_CONF_DIRECTORY": "gAAAAABkb2CP7fVFN-w4eM3wo7mVNFEK1C4xq-1LESRHHTMXGGEwaQK-FgZn30WDkQWpdeR2iY2j3DNIgoTOTF0zfr3nvr2D1nbiD2GyjY6eladyTU0VXM2gaZWzyv4b9V0kNoeTzIXg",
+        "_PG_SERVER_VERSION": "gAAAAABkb2CPjghsxpQrbHLiuIVFCkq2B90uzcRWUr_8cT7gBIdhw1wxo80cCrZwNW8QTN1sJw6otx_tM0kWHsZuEpfopzN97Q=="
     },
-    {
-      "_PG_SERVER_STANDBY_IP": "192.168.222.7",
-      "_PG_SERVER_STANDBY_USERNAME": "postgres",
-      "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
-      "_PG_SERVER_STANDBY_PORT": "5432",
-      "_PG_REPLICATION_SLOT": "sb2",
-      "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby2"
-    }
-  ]
+    "primary_variables": {
+        "_PG_SERVER_PRIMARY_IP": "gAAAAABkb2CPwAyCQERLme0UrKVIqPEaqGr2Sld7pFz_IFropv_P_a5gEtrdC2ohfta2EaX-PI-NZqq_9a3voH1fk96j9q0Vdg==",
+        "_PG_SERVER_PRIMARY_USERNAME": "gAAAAABkb2CP2wWNeekPNC2X0L6urtSUy8EWfCIXGIGbXyiQEt9Dreczz5Jkki_rCFLxZ2GxKqZdAlbYHK4VA_oGSZOKp9bXSg==",
+        "_PG_SERVER_PRIMARY_PSSWD": "gAAAAABkb2CPoW8cjpB1jRVr6YxdCrDHLxAT_8VJKENt1jpZG5QV48ZLQDd3cmc-jO6GPS5xPd_3dUDZSwIPdfJ3y3QLMpTq6w==",
+        "_PG_SERVER_PRIMARY_PORT": "gAAAAABkb2CPqAB8chHty29hykV_JR8H-VH_rdIj0mLxWc9fZqD9e-s3aXUMv1EPo1XV2t1iIdt9489UecM61STa629gr01L-Q==",
+        "_PG_PASSWORD": "gAAAAABkb2CPc_ClBjjI9-pm-fklXEjo3k-zcNCljVKZz8tdr1MIj6LYpwtP-n0XNmzZQf9OkARoMk8pba2ltLVgGUcmjTmxyQ==",
+        "_PG_SERVER_PRIMARY_DATA_DIRECTORY": "gAAAAABkb2CPmd1dy9VVStWNmDzRVAcbM1yxW74T_Yql9IrT5QTyTc4tUqQQzakSg4ITDSOhEWD6th2vtRlE_igzHENBwOjfJA=="
+    },
+    "standby_variables": [
+        {
+            "_PG_SERVER_STANDBY_IP": "192.168.222.6",
+            "_PG_SERVER_STANDBY_USERNAME": "postgres",
+            "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
+            "_PG_SERVER_STANDBY_PORT": "5432",
+            "_PG_REPLICATION_SLOT": "sb1",
+            "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby1"
+        },
+        {
+            "_PG_SERVER_STANDBY_IP": "192.168.222.7",
+            "_PG_SERVER_STANDBY_USERNAME": "postgres",
+            "_PG_SERVER_STANDBY_PSSWD": "xflow@123",
+            "_PG_SERVER_STANDBY_PORT": "5432",
+            "_PG_REPLICATION_SLOT": "sb2",
+            "_PG_SERVER_STANDBY_DATA_DIRECTORY": "standby2"
+        }
+    ]
 }
-

@@ -1,0 +1,24 @@
+- name: Execute pg_basebackup on standby nodes
+  hosts: PG_SB_GROUP
+  gather_facts: false
+  vars_files:
+    - /root/ansible_python/config.json
+
+  tasks:
+    - name: Run pg_basebackup command
+      command: >
+        echo
+        -h {{ _PG_SERVER_PRIMARY_IP }}
+        -U {{ _PG_SERVER_STANDBY_USERNAME }}
+        -X stream
+        -C
+        -S {{ _PG_REPLICATION_SLOT }}
+        -v
+        -R
+        -w
+        -D {{ _PG_CIRRUS_CONF_DIRECTORY }}/{{ _PG_SERVER_STANDBY_DATA_DIRECTORY }}
+      register: pg_basebackup_output
+
+    - name: Display pg_basebackup output
+      debug:
+        var: pg_basebackup_output.stdout_lines
